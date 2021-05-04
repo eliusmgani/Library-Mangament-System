@@ -1,47 +1,7 @@
 // Copyright (c) 2021, lee22jar and contributors
 // For license information, please see license.txt
-/*
-frappe.ui.form.on('Library Member', {
-	refresh: function(frm) {
-
-	},
-	onload: function (frm) {
-		if(frm.doc.date_of_birth){
-			$(frm.fields_dict['age_html'].wrapper).html("AGE : " + get_age(frm.doc.date_of_birth));
-		}
-	}
-});
-
-frappe.ui.form.on('Library Member', 'date_of_birth', function(frm) {
-	if(frm.doc.date_of_birth){
-		var today = new Date();
-		var birthDate = new Date(frm.doc.date_of_birth);
-		var age_str = get_age(frm.doc.date_of_birth);
-		$(frm.fields_dict['age_html'].wrapper).html("AGE : " + age_str);
-	}
-});
-
-var get_age = function (birth) {
-	var ageMS = Date.parse(Date()) - Date.parse(birth);
-	var age = new Date();
-	age.setTime(ageMS);
-	var years = age.getFullYear() - 1970;
-	return years + " Year(s) " + age.getMonth() + " Month(s) " + age.getDate() + " Day(s) ";
-};
-*/
 
 
-frappe.ui.form.on('Library Member', 'date_of_birth', function(frm){
-	cur_frm.set_value(age, moment().diff(cur_frm.doc.date_of_birth, 'years'));
-	cur_frm.refresh_field(age);
-});
-
-/*
-
-cur_frm.set_value(AgeField, moment().diff(cur_frm.doc.DATEFIELDNAME, 'years'));
-cur_frm.refresh_field(AgeField)
-
-*/
 
 frappe.ui.form.on("Library Member", {
 	refresh: function(frm){
@@ -57,3 +17,35 @@ frappe.ui.form.on("Library Member", {
 		})
 	}
 });
+
+frappe.ui.form.on('Library Member', 'date_of_birth', function(frm){
+	if (frm.doc.date_of_birth){
+		let today = new Date();
+		let birthDate = new Date(frm.doc.date_of_birth);
+		if(today < birthDate){
+			frappe._msgprint(_("Please Select a Valid Date"));
+			frappe.model.set_value(frm.doctype, frm.docname, date_of_birth, '');
+		}
+		else{
+			let age = get_age(frm.doc.date_of_birth);
+			$(frm.fields_dict['age_html'].wrapper).html('AGE: ' + age);
+		}
+	}
+	else{
+		$(frm.fields_dict['age_html'].wrapper).html();
+	}
+});
+
+let get_age = function(birth){
+	let ageMS = Date.parse(Date()) - Date.parse(birth);
+	let age_ = new Date();
+	age.setTime(ageMs);
+	let years = age_.getFullYear() - 1970;
+	return years + ' Year(s) ' + age_.getMonth() + ' Month(s)' + age_.getDate() + 'Day(s)';
+};
+/*
+frappe.ui.form.on('Library Member', 'date_of_birth', function(frm){
+	cur_frm.set_value(age, moment().diff(cur_frm.doc.date_of_birth, 'years'));
+	cur_frm.refresh_field(age);
+});
+*/

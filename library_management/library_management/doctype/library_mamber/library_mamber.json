@@ -1,7 +1,5 @@
 {
- "allow_rename": 1,
- "autoname": "field:first_name",
- "creation": "2021-04-07 10:49:52.456167",
+ "creation": "2021-05-04 17:32:29.992049",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -9,6 +7,8 @@
   "first_name",
   "last_name",
   "full_name",
+  "dob",
+  "age_html",
   "email",
   "phone_no"
  ],
@@ -18,8 +18,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "First Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "last_name",
@@ -30,6 +29,17 @@
    "fieldname": "full_name",
    "fieldtype": "Data",
    "label": "Full Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Data",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "age_html",
+   "fieldtype": "HTML",
+   "label": "Age",
    "read_only": 1
   },
   {
@@ -47,11 +57,10 @@
    "options": "Phone"
   }
  ],
- "modified": "2021-04-07 10:49:52.456167",
+ "modified": "2021-05-04 17:52:10.646796",
  "modified_by": "Administrator",
  "module": "Library Management",
- "name": "Library Member",
- "name_case": "Title Case",
+ "name": "Library Mamber",
  "owner": "Administrator",
  "permissions": [
   {

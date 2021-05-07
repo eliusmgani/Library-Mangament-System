@@ -8,7 +8,7 @@ import dateutil
 from frappe.model.document import Document
 from frappe.utils import getdate, add_years, nowdate, date_diff
 
-class LibraryMamber(Document):
+class LibraryMember(Document):
 	
 	# This method will return full name everytime when the document is saved.
 	def before_save(self):

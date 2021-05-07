@@ -1,11 +1,11 @@
 // Copyright (c) 2021, lee22jar and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Library Mamber', {
+frappe.ui.form.on('Library Member', {
 	refresh: function(frm) {
 		frm.add_custom_button("Create MemberShip", () => {
 			frappe.new_doc("Library Membership", {
-				"library_embership": frm.doc.name
+				"library_membership": frm.doc.name
 			})
 		})
 		frm.add_custom_button("Create Transaction", () => {
@@ -22,7 +22,7 @@ frappe.ui.form.on("Library Member", 'dob', function(frm){
 		let today  = new Date();
 		let birthDate = new Date(frm.doc.dob);
 		if(today < birthDate){
-			frappe._msgprint(_("Please Select a Valid Date"));
+			frappe.msgprint(__("Please Select a Valid Date"));
 			frappe.model.set_value(frm.doctype, frm.docname, dob, '');
 		}
 		else{
@@ -36,7 +36,7 @@ frappe.ui.form.on("Library Member", 'dob', function(frm){
 });
 
 let get_age = function(birth){
-	let ageMS = Date.parse(Date() - Date.parse(birth));
+	let ageMS = Date.parse(Date()) - Date.parse(birth);
 	let age = new Date();
 	age.setTime(ageMS);
 	let years = age.getFullYear() - 1970;

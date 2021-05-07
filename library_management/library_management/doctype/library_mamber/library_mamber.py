@@ -16,9 +16,9 @@ class LibraryMamber(Document):
 	
 	# This method will return Age from date of birth
 	def get_age(self):
-		age = ""
+		age_str = ""
 		if self.dob:
-			born = getdate(self.dob)
-			age = dateutil.relativedelta.relativedelta(getdate(), born)
+			dob = getdate(self.dob)
+			age = dateutil.relativedelta.relativedelta(getdate(), dob)
 			age_str = str(age.years) + " Year(s) " + str(age.months) + " Month(s) " + str(age.days) + "Days"
 		return age_str

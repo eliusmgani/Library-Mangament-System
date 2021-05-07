@@ -3,7 +3,8 @@
 # For license information, please see license.txt
 
 from __future__ import unicode_literals
-# import frappe
+import frappe
+import dateutil
 from frappe.model.document import Document
 from frappe.utils import getdate, add_years, nowdate, date_diff
 
@@ -18,6 +19,6 @@ class LibraryMamber(Document):
 		age = ""
 		if self.dob:
 			born = getdate(self.dob)
-			age = deltautils.relativedelta.relativedelta(getdt(), born)
-			age_str = str(age.years) + " Year(s) " + str(age.months) + " Month(s) " + str(ge.days) + "Days"
+			age = dateutil.relativedelta.relativedelta(getdate(), born)
+			age_str = str(age.years) + " Year(s) " + str(age.months) + " Month(s) " + str(age.days) + "Days"
 		return age_str

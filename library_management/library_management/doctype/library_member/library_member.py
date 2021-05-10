@@ -6,19 +6,19 @@ from __future__ import unicode_literals
 import frappe
 import dateutil
 from frappe.model.document import Document
-from frappe.utils import getdate, add_years, nowdate, date_diff
+from frappe.utils import gatdate, date_diff, add_days, nowdate
 
 class LibraryMember(Document):
 	
-	# This method will return full name everytime when the document is saved.
+	# This method will return full name evrytime when document is saved
 	def before_save(self):
 		self.full_name = f'{self.first_name} {self.last_name}'
 	
-	# This method will return Age from date of birth
+	# This method will return age from date of births
 	def get_age(self):
 		age_str = ""
 		if self.dob:
-			dob = getdate(self.dob)
-			age = dateutil.relativedelta.relativedelta(getdate(), dob)
-			age_str = str(age.years) + " Year(s) " + str(age.months) + " Month(s) " + str(age.days) + "Days"
+			born = gatdate(self.dob)
+			age = dateutil.relativedelta.relativedelta(gatdate(), born)
+			age_str = str(age.years) + "Year(s)" + str(age.months) + "Month(s)" + str(age.days) + "Day(s(=)"
 		return age_str

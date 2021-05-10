@@ -10,28 +10,28 @@ frappe.ui.form.on('Library Member', {
 		})
 		frm.add_custom_button("Create Transaction", () => {
 			frappe.new_doc("Library Transaction", {
-				"library_trnsaction": frm.doc.name
+				"library_transaction": frm.doc.name
 			})
 		})
-
 	}
-	
 });
+
+
 frappe.ui.form.on("Library Member", 'dob', function(frm){
 	if(frm.doc.dob){
-		let today  = new Date();
-		let birthDate = new Date(frm.doc.dob);
-		if(today < birthDate){
-			frappe.msgprint(__("Please Select a Valid Date"));
-			frappe.model.set_value(frm.doctype, frm.docname, dob, '');
+		let today = new Date();
+		let birthdate = new Date(frm.doc.dob)
+		if(today < birthdate){
+			frappe.msgprint(__("Please Select a Valid date"))
+			frappe.model.set_value(frm.doctype, frm.docname, dob, '')
 		}
 		else{
 			let age_str = get_age(frm.doc.dob);
-			$(frm.fields_dict['age_html'].wrapper).html('AGE: ' + age_str);
+			$(frm.fields_dict['age_html'].wrapper).html('AGE: ' + age_str)
 		}
 	}
 	else{
-		$(frm.fields_dict['age_html'].wrapper).html();
+		$(frm.fields_dict['age_html'].wrapper).html()
 	}
 });
 
@@ -40,12 +40,5 @@ let get_age = function(birth){
 	let age = new Date();
 	age.setTime(ageMS);
 	let years = age.getFullYear() - 1970;
-	return years + ' Year(s) ' + age.getMonth() + ' Month(s) ' +  age.getDate() + ' Day(s)';
+	return years + "Year(s)" + age.getMonth() + "Month(s)" + age.getDate() + "Day";
 }
-
-/*
-frappe.ui.form.on('Library Member', 'date_of_birth', function(frm){
-	cur_frm.set_value(age, moment().diff(cur_frm.doc.date_of_birth, 'years'));
-	cur_frm.refresh_field(age);
-});
-*/

@@ -1,6 +1,5 @@
 {
- "autoname": "field:first_name",
- "creation": "2021-05-04 17:32:29.992049",
+ "creation": "2021-05-10 11:24:57.790983",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -8,10 +7,11 @@
   "first_name",
   "last_name",
   "full_name",
+  "email",
+  "mobile_no",
   "dob",
   "age_html",
-  "email",
-  "phone_no"
+  "image"
  ],
  "fields": [
   {
@@ -19,8 +19,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "First Name",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "last_name",
@@ -31,8 +30,21 @@
    "fieldname": "full_name",
    "fieldtype": "Data",
    "label": "Full Name",
-   "read_only": 1,
-   "unique": 1
+   "read_only": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email Address",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone"
   },
   {
    "fieldname": "dob",
@@ -46,21 +58,12 @@
    "read_only": 1
   },
   {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Email Address",
-   "options": "Email",
-   "reqd": 1
-  },
-  {
-   "fieldname": "phone_no",
-   "fieldtype": "Data",
-   "label": "Phone No",
-   "options": "Phone"
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
   }
  ],
- "modified": "2021-05-07 11:57:33.029601",
+ "modified": "2021-05-10 11:35:30.327369",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",

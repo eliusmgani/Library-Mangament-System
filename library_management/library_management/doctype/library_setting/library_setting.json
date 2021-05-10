@@ -17,11 +17,12 @@
   {
    "fieldname": "maximum_number",
    "fieldtype": "Int",
-   "label": "Maximum Number of Issued Articles"
+   "label": "Maximum Number of Issued Articles",
+   "length": 2
   }
  ],
  "issingle": 1,
- "modified": "2021-04-07 21:33:13.993141",
+ "modified": "2021-05-10 16:03:57.771903",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Setting",

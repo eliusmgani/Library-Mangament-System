@@ -41,7 +41,7 @@ class LibraryTransaction(Document):
 
     def validate_maximum_limit(self):
         max_articles = frappe.db.get_single_value(
-            "Library Setting", "max_articles")
+            "Library Setting", "maximum_number")
         count = frappe.db.count(
             "Library Transaction",
             {

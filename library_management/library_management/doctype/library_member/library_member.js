@@ -40,5 +40,5 @@ let get_age = function(birth){
 	let age = new Date();
 	age.setTime(ageMS);
 	let years = age.getFullYear() - 1970;
-	return years + "Year(s)" + age.getMonth() + "Month(s)" + age.getDate() + "Day";
+	return years + " Year(s) " + age.getMonth() + " Month(s) " + age.getDate() + " Day(s)";
 }

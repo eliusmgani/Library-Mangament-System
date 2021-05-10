@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 import frappe
 import dateutil
 from frappe.model.document import Document
-from frappe.utils import gatdate, date_diff, add_days, nowdate
+from frappe.utils import getdate, date_diff, add_days, nowdate
 
 class LibraryMember(Document):
 	
@@ -20,5 +20,5 @@ class LibraryMember(Document):
 		if self.dob:
 			born = gatdate(self.dob)
 			age = dateutil.relativedelta.relativedelta(gatdate(), born)
-			age_str = str(age.years) + "Year(s)" + str(age.months) + "Month(s)" + str(age.days) + "Day(s(=)"
+			age_str = str(age.years) + " Year(s) " + str(age.months) + " Month(s) " + str(age.days) + " Day(s)"
 		return age_str

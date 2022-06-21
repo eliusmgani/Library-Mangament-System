@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "field:first_name",
  "creation": "2021-05-10 11:24:57.790983",
  "doctype": "DocType",
@@ -10,7 +11,9 @@
   "full_name",
   "email",
   "mobile_no",
+  "column_break_6",
   "dob",
+  "age",
   "age_html",
   "image"
  ],
@@ -54,18 +57,28 @@
    "label": "Date of Birth"
   },
   {
-   "fieldname": "age_html",
-   "fieldtype": "HTML",
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
    "label": "Age",
    "read_only": 1
   },
   {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "Image"
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "age_html",
+   "fieldtype": "HTML",
+   "label": "Age Desc"
   }
  ],
- "modified": "2021-05-10 14:49:38.117395",
+ "links": [],
+ "modified": "2022-06-21 13:05:47.444047",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",
